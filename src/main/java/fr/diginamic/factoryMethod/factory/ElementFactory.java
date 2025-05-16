@@ -1,7 +1,6 @@
 package fr.diginamic.factoryMethod.factory;
 
 import fr.diginamic.factoryMethod.entity.*;
-import fr.diginamic.factoryMethod.entity.*;
 
 public class ElementFactory implements IElementFactory {
 
@@ -15,7 +14,6 @@ public class ElementFactory implements IElementFactory {
             case INGREDIENT -> new Ingredient(nom, valeur, unite);
             case ALLERGENE -> new Allergene(nom, valeur, unite);
             case ADDITIF -> new Additif(nom, valeur, unite);
-            default -> throw new IllegalArgumentException("Type d'élément non supporté: " + type);
         };
     }
 }
