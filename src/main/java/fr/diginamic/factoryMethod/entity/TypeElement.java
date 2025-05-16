@@ -1,4 +1,4 @@
-package fr.diginamic.entity;
+package fr.diginamic.factoryMethod.entity;
 
 public enum TypeElement {
     INGREDIENT,

@@ -1,11 +1,14 @@
-package fr.diginamic.factory;
+package fr.diginamic.factoryMethod.factory;
 
+import fr.diginamic.factoryMethod.entity.Element;
+import fr.diginamic.factoryMethod.entity.TypeElement;
+import fr.diginamic.factoryMethod.entity.Unite;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-import fr.diginamic.entity.*;
-
 class ElementFactoryTest {
+
+    private final ElementFactory factory = new ElementFactory();
 
     @Test
     public void testCreateIngredient() {
@@ -14,7 +17,7 @@ class ElementFactoryTest {
         double valeur = 100.0;
         Unite unite = Unite.MILLI_GRAMMES;
 
-        Element element = ElementFactory.getElement(type, nom, valeur, unite);
+        Element element = factory.getInstance(type, nom, valeur, unite);
 
         assertEquals("Farine", element.getNom());
         assertEquals(100.0, element.getValeur(), 0.001);
@@ -28,10 +31,10 @@ class ElementFactoryTest {
         double valeur = 0.5;
         Unite unite = Unite.MICRO_GRAMMES;
 
-        Element element = ElementFactory.getElement(type, nom, valeur, unite);
+        Element element = factory.getInstance(type, nom, valeur, unite);
 
         assertEquals("Gluten", element.getNom());
-        assertEquals( 0.5, element.getValeur(), 0.001);
+        assertEquals(0.5, element.getValeur(), 0.001);
         assertEquals(Unite.MICRO_GRAMMES, element.getUnite());
     }
 
@@ -42,11 +45,10 @@ class ElementFactoryTest {
         double valeur = 0.2;
         Unite unite = Unite.MICRO_GRAMMES;
 
-        Element element = ElementFactory.getElement(type, nom, valeur, unite);
+        Element element = factory.getInstance(type, nom, valeur, unite);
 
         assertEquals("E250", element.getNom());
         assertEquals(0.2, element.getValeur(), 0.001);
         assertEquals(Unite.MICRO_GRAMMES, element.getUnite());
     }
-
 }
