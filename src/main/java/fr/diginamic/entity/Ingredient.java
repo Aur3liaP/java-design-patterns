@@ -1,4 +1,7 @@
 package fr.diginamic.entity;
 
-public class Ingredient {
+public class Ingredient extends Element{
+    public Ingredient(String nom, double valeur, Unite unite) {
+        super(nom, valeur, unite);
+    }
 }
