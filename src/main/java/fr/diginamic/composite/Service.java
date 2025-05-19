@@ -1,6 +1,7 @@
 package fr.diginamic.composite;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Service implements IElement{
@@ -23,5 +24,14 @@ public class Service implements IElement{
             total += element.calculerSalaire();
         }
         return total;
+        // elements.stream().mapToDouble(e->e.calculerSalaire()).sum();
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public List<IElement> getElements() {
+        return Collections.unmodifiableList(elements);
     }
 }
